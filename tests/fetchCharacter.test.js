@@ -23,4 +23,11 @@ describe('Teste a função fetchCharacter', () => {
     // expect(response).toBe('Falso positivo'); // Verifica se o teste não é um falso positivo. É esperado que falhe
   });
 
+  it('Verifica se fetch é chamada com o endpoint correto', async () => {
+    const url = 'https://www.superheroapi.com/api.php/4192484924171229/720';
+    await fetchCharacter('720');
+    expect(fetch).toHaveBeenCalledTimes(4); // Observar que fetch foi chamado 4 vezes dentro do escopo do Describe do teste. Poderia utilizar  beforeEach ou o afterEach para não permitir que a função vazasse do escopo
+    expect(fetch).toHaveBeenCalledWith(url);
+  });
+
 });
