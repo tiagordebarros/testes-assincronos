@@ -16,4 +16,11 @@ describe('Teste a função fetchCharacter', () => {
     expect(failRequest).toEqual(new Error('You must provide an url'));
   });
 
+  it('Verifica se retorna \'Invalid id\' ao executar a função com parâmetro que não existe', async () => {
+    const response = await fetchCharacter('parâmetro qualquer');
+    // console.log(response); // Retorna 'Invalid id' ao passar um parâmetro inválido
+    expect(response).toBe('Invalid id');
+    // expect(response).toBe('Falso positivo'); // Verifica se o teste não é um falso positivo. É esperado que falhe
+  });
+
 });
